@@ -1,6 +1,6 @@
 #include <iostream>
 #include <unistd.h>
-#include <gpio.h>
+#include <pigpio.h>
 
 #define LED_PIN 17
 
@@ -8,7 +8,7 @@ int main()
 {
   if (gpioInitialise() < 0)
   {
-    std::cerr << "Erreur d'initialisation de la bibliothèque GPIO" << std::endl;
+    std::cerr << "Erreur d'initialisation de la bibliothèque pigpio" << std::endl;
     return 1;
   }
 

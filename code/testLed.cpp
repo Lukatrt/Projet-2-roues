@@ -1,19 +1,28 @@
-#include <wiringPi.h>
+#include <iostream>
+#include <unistd.h>
+#include <gpio.h>
 
 #define LED_PIN 17
 
 int main()
 {
-  wiringPiSetup();
-  pinMode(LED_PIN, OUTPUT);
+  if (gpioInitialise() < 0)
+  {
+    std::cerr << "Erreur d'initialisation de la bibliothèque GPIO" << std::endl;
+    return 1;
+  }
+
+  gpioSetMode(LED_PIN, PI_OUTPUT);
 
   while(1)
   {
-    digitalWrite(LED_PIN, HIGH); // Allumer la LED
-    delay(1000);
-    digitalWrite(LED_PIN, LOW); // Éteindre la LED
-    delay(1000);
+    gpioWrite(LED_PIN, 1); // Allumer la LED
+    usleep(1000000);
+    gpioWrite(LED_PIN, 0); // Éteindre la LED
+    usleep(1000000);
   }
+
+  gpioTerminate();
 
   return 0;
 }

@@ -1,0 +1,32 @@
+#include <wiringPi.h>
+#include <softPwm.h>
+
+#define IN1 1
+#define IN2 0
+
+int main()
+{
+  wiringPiSetup();
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  softPwmCreate(IN1, 0, 100);
+  softPwmCreate(IN2, 0, 100);
+
+  while(1)
+  {
+    softPwmWrite(IN1, 50); // Avancer à mi-vitesse
+    softPwmWrite(IN2, 0);
+    delay(1000);
+    softPwmWrite(IN1, 0); // Arrêter le moteur
+    softPwmWrite(IN2, 0);
+    delay(1000);
+    softPwmWrite(IN1, 0); // Reculer à mi-vitesse
+    softPwmWrite(IN2, 50);
+    delay(1000);
+    softPwmWrite(IN1, 0); // Arrêter le moteur
+    softPwmWrite(IN2, 0);
+    delay(1000);
+  }
+
+  return 0;
+}

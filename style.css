@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: lightgrey;
+    margin: 0; /* Supprimer les marges */
+    padding: 0; /* Supprimer les marges */
+}
+
+/*body {
+    display: flex;
+    flex-direction: column;
+}*/
+
+header {
+    background: #fff; /* ou une autre couleur de votre choix */
+}
+/* Style pour le logo à gauche */
+.logo-insa {
+    width: 300px; /* Ajustez selon la taille souhaitée */
+    height: auto;
+    margin-right: 20px; /* Espace entre le logo et le titre */
+}
+
+.texte h1 {
+    color: red;
+    margin: 0.5rem;
+    font-size: 3em; /* Ajustez la taille du titre ici */
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alignement au début de la page */
+    align-items: flex-start; /* Alignement des enfants à gauche */
+    min-height: 100vh; /* Utiliser au moins toute la hauteur de l'écran */
+    width: 100%;
+    overflow-x: hidden; /* Empêcher le défilement horizontal */
+}
+
+h2 {
+    text-align: left;
+    font-size: 2.5em;
+    margin-left: 2rem
+}
+
+.conteneur {
+    display: grid;
+    width: 100vw;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 2.5rem;
+
+}
+
+.boxOne,.boxTwo,.boxThree,.boxFor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ajustez la largeur des boutons ici */
+    max-width: 450px; /* ou n'importe quelle valeur qui convient */
+    padding: 2rem;
+    box-sizing: border-box;
+    border: 3px solid black;
+    border-radius: 30px;
+    background-color: white;
+    font-size: 4em;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.boxOne:hover,.boxTwo:hover,.boxThree:hover,.boxFor:hover  {
+    background-color: #BEAEE2;
+    color: white;
+}
+
+.boxOne:active,.boxTwo:active,.boxThree:active,.boxFor:active {
+    background-color: gray;
+    color: white;
+}
+
+.boxOne{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+.boxTwo {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.boxThree {
+    grid-column-start:3;
+    grid-row-start: 2;
+}
+
+.boxFor {
+    grid-column-start:2;
+    grid-row-start: 3;
+}
+
+.checkboxes {
+    margin-left: 20px; /* Décalage vers la droite pour correspondre à l'exemple précédent */
+}
+
+.checkboxes label {
+    display: block;
+    margin-bottom: 10px; /* Espace entre chaque case à cocher */
+}
+
+.checkboxes input[type="checkbox"] {
+    margin-right: 10px; /* Espace entre la case à cocher et le texte */
+}
+
+
+footer {
+    text-align: left;
+    width: 100%;
+    padding: 1rem;
+    background: #fff; /* ou une autre couleur de votre choix */
+    border-top: 1px solid #ccc; /* Ajoute une ligne pour séparer le footer */
+}
+ul, form {
+    align-self: flex-start; /* Alignement à gauche */
+    margin-left: 1rem; /* Décale vers la gauche */
+    padding-top: 20px; /* Espace après les boutons */
+}
+/* Ajout de responsivité */
+@media (max-width: 768px) {
+    header img {
+        width: 15%; /* Ajustez la taille du logo pour les tablettes */
+    }
+
+    .texte h1 {
+        font-size: 2em;
+    }
+
+    .boxOne,.boxTwo,.boxThree,.boxFor {
+        padding: 0.5rem;
+        font-size: 1em;
+        width: 80%; /* Ajustez la largeur des boutons ici */
+    }
+
+    footer {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    header img {
+        width: 20%; /* Ajustez la taille du logo pour les mobiles */
+    }
+
+    .texte h1 {
+        font-size: 1.5em;
+    }
+
+    .boxOne,.boxTwo,.boxThree,.boxFor {
+        width: 70%; /* Ajustez la largeur des boutons ici */
+    }
+}

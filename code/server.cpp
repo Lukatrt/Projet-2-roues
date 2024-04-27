@@ -2,6 +2,7 @@
 #include <cstring>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <unistd.h> // Pour les fonctions read et write
 
 int main() {
     int server_fd, new_socket;
@@ -9,7 +10,7 @@ int main() {
     int opt = 1;
     int addrlen = sizeof(address);
     char buffer[1024] = {0};
-    char *hello = "Acknowledge from C++ server on Raspberry Pi";
+    const char *hello = "Acknowledge from C++ server on Raspberry Pi";
 
     // Création du socket file descriptor
     if ((server_fd = socket(AF_INET, SOCK_STREAM, 0)) == 0) {
@@ -43,7 +44,7 @@ int main() {
         exit(EXIT_FAILURE);
     }
 
-    valread = read(new_socket, buffer, 1024);
+    int valread = read(new_socket, buffer, 1024);
     printf("%s\n", buffer);
     send(new_socket, hello, strlen(hello), 0);
     printf("Hello message sent\n");

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css?v=2" >
+    <script src="script.js?v=2"></script>
+    <script src="/nipplejs.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="banner">
+            <img src="INSA.png" alt="logo insa" class="logo-insa"/>
+            <div class="texte">
+                <h1>
+                    Contrôle de l'hoverboard
+                </h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 >Commandes Boutons :</h2>
+
+            <div class="conteneur">
+                <button id="avancer" class="boxOne" data-action="avancer">Avant</button>
+                <button id="gauche" class="boxTwo" data-action="gauche">Gauche</button>
+                <button id="droite" class="boxThree" data-action="droite">Droite</button>
+                <button id="arriere" class="boxFour" data-action="arriere">Arrière</button>
+
+            </div>
+            <h2 >Commandes Joystick :</h2>
+
+            <div id="joystick"></div>
+        </section>
+        <div class="LED">
+            <h3 class="w3-padding">Allumer/Éteindre la LED</h3>
+            <button onclick="onButton()" class="w3-button w3-green w3-xlarge w3-ripple w3-wide" style="width:40%;">ON</button>
+            <button onclick="offButton()" class="w3-button w3-red w3-xlarge w3-ripple w3-wide" style="width:40%;">OFF</button>
+            <br><br>
+        </div>
+
+        <div class="afficheVitesse">
+            <h3 class="w3-padding">Vitesse</h3>
+            <p ><span id="valeurVitesse">0</span></p>
+        </div>
+
+
+
+        </main>
+    <footer>Application pour le contrôle de l'hoverboard par Lùka TRICOT, Antoine LEBLANC, Duncan BRIQUET, Mathys DARMAGNAC, Aziz SLAMA;</footer>
+</body>
+</html>
